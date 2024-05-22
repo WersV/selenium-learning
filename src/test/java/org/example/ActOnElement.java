@@ -32,6 +32,11 @@ public class ActOnElement {
         WebElement carSelect = driver.findElement(By.cssSelector("select"));
         Select cars = new Select(carSelect);
         cars.selectByVisibleText("Saab");
-//        driver.quit();
+
+        WebElement selectCar = driver.findElement(By.cssSelector("select"));
+        SelectCheck check = new SelectCheck();
+        System.out.println(check.checkSelect("Audi", selectCar));
+
+        driver.quit();
     }
 }
