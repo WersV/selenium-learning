@@ -1,10 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -21,10 +18,15 @@ public class ActOnElement {
 //        driver.findElement(By.id("clickOnMe")).click();
         WebElement nameInput = driver.findElement(By.xpath("//input[@name='fname']"));
         nameInput.sendKeys("Przemek");
-//        WebElement passw = driver.findElement(By.name("password"));
-//        passw.clear();
-//        passw.sendKeys("12345");
-//        passw.sendKeys(Keys.ENTER);
+        System.out.println(nameInput.getAttribute("value"));
+        WebElement passw = driver.findElement(By.name("password"));
+        passw.clear();
+        passw.sendKeys("12345");
+        passw.sendKeys(Keys.ENTER);
+        Alert firstAlert = driver.switchTo().alert();
+        firstAlert.accept();
+        Alert secondAlert = driver.switchTo().alert();
+        secondAlert.accept();
 //        passw.sendKeys(Keys.TAB);
         WebElement checkbox = driver.findElement(By.cssSelector("input[type='checkbox']"));
         checkbox.click();
@@ -35,7 +37,7 @@ public class ActOnElement {
 
         WebElement selectCar = driver.findElement(By.cssSelector("select"));
         SelectCheck check = new SelectCheck();
-        System.out.println(check.checkSelect("Audi", selectCar));
+//        System.out.println(check.checkSelect("Audi", selectCar));
 
         driver.quit();
     }
