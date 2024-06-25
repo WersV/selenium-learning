@@ -1,11 +1,12 @@
 package org.example;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
 
-public class Annotations {
+public class Annotations{
 
     @BeforeTest
     public void beforeTest() {
@@ -26,4 +27,11 @@ public class Annotations {
     public void afterMethod() {
         System.out.println("Running after method");
     }
+
+//    @BeforeClass
+//    public void setDriver(ITestContext context) {
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver();
+//        context.setAttribute("WebDriver", driver);
+//    }
 }
